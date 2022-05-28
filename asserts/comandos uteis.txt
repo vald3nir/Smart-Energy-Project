@@ -1,0 +1,77 @@
+# MOACI
+
+Projeto de um Sistemas de Monitoramento de Energia Elétrica Residencial no Ambiente de Internet das Coisas (IoT).
+
+## Esquemáticos do Hardware
+
+    https://easyeda.com/KamikazeTeam/moacir
+
+
+## Bibliotecas Utilizadas 
+
+### Bibliotecas de áudio e ferramentas científicas para o Python 3
+
+    sudo apt-get install python3-pyaudio python3-dev portaudio19-dev python3-setuptools python3-scipy python-pip python3-pip -y
+
+    sudo pip3 install matplotlib numpy pandas sklearn
+
+### ALSA
+
+    sudo apt-get install build-essential libasound2-dev -y
+
+### DATA BASE
+
+    sudo pip3 install pymongo
+
+### HTTP
+
+    sudo pip3 install Flask requests
+
+### MAC ADDRESS
+
+    sudo pip3 install get-mac
+
+### Serial Connection
+
+    sudo pip3 install pyserial
+    
+### MQTT
+
+    sudo apt-get install mosquitto mosquitto-clients libmosquitto-dev -y
+    sudo pip3 install paho-mqtt
+
+### Instalação da ESP32 e NODE MCU
+
+    https://dl.espressif.com/dl/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json
+    
+## Configurações e Comandos Uteis
+
+Lista os dispositivos de áudio disponíveis no Linux: **aplay -l**
+
+### Configuração da placa de áudio padrão de captura
+
+    sudo nano /etc/asound.conf
+
+    pcm.!default {
+            type hw
+            card 1
+    }
+    ctl.!default {
+            type hw
+            card 1
+    }
+
+### Gravação de arquivo wave diretamente pela alsa:
+
+    arecord -f S16_LE -c 2 -r 48000 -d 1 amostra.wav
+
+OBS: 
+ - -c -> número de canais;
+ - -r -> taxa de amostragem; 
+ - -d -> tempo de gravação;
+ - 
+
+### Create Executable from Python Script using Pyinstaller
+    
+    pyinstaller --onefile test_moaci.py
+
