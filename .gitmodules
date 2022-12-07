@@ -1,9 +1,6 @@
 [submodule "Smart-Energy-App"]
 	path = Smart-Energy-App
 	url = https://github.com/vald3nir/Smart-Energy-App.git
-[submodule "Smart-Energy-Core"]
-	path = Smart-Energy-Core
-	url = https://github.com/vald3nir/Smart-Energy-Core.git
 [submodule "Smart-Energy-Firmwares"]
 	path = Smart-Energy-Firmwares
 	url = https://github.com/vald3nir/Smart-Energy-Firmwares.git
