@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.smart_energy_flutter">
    <application
-        android:label="smart_energy_flutter"
+        android:label="Smart Energy"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
