@@ -18,10 +18,30 @@ class SplashPage extends StatelessWidget {
   }
 }
 
-class SplashBody extends StatelessWidget {
+class SplashBody extends StatefulWidget {
   const SplashBody({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<SplashBody> createState() => _SplashBodyState();
+}
+
+class _SplashBodyState extends State<SplashBody> with TickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(seconds: 2),
+    vsync: this,
+  )..repeat(reverse: false);
+  late final Animation<double> _animation = CurvedAnimation(
+    parent: _controller,
+    curve: Curves.linear,
+  );
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +50,13 @@ class SplashBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(
-            Constants.logoPath,
-            height: 150,
-            scale: 2.5,
+          RotationTransition(
+            turns: _animation,
+            child: Image.asset(
+              Constants.logoPath,
+              height: 150,
+              scale: 2.5,
+            ),
           ),
           const SizedBox(height: 10),
           Text(
